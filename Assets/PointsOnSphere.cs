@@ -1,0 +1,143 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PointsOnSphere : MonoBehaviour {
+
+	private GameObject prefab;
+	public int numberOfObjects;
+	GameObject [] cubes;
+
+	Renderer rend;
+	//Color altColor = Color.white;
+	public float size = 20;
+
+	public bool transformBool = false;
+
+	int sphereScale = 500;
+
+	public Light redLight;
+
+	public bool lightGlow = false;
+
+
+	[ContextMenu("Create Points")]
+	void Create () {
+		var points = UniformPointsOnSphere(numberOfObjects, sphereScale);
+		for(var i=0; i<numberOfObjects; i++) {
+			Instantiate(prefab, transform.position+points[i], Quaternion.identity);
+		}
+	}
+
+	Vector3[] UniformPointsOnSphere(int numberOfObjects, float scale) {
+		Vector3[] spherePoints_0 = new Vector3[numberOfObjects];
+		var i = Mathf.PI * (3 - Mathf.Sqrt(5));
+		var o = 2 / (float)numberOfObjects;
+		for(var k=0; k<numberOfObjects; k++) {
+			var y = k * o - 1 + (o / 2);
+			var r = Mathf.Sqrt(1 - y*y);
+			var phi = k * i;
+			spherePoints_0[k] = new Vector3(Mathf.Cos(phi)*r, y, Mathf.Sin(phi)*r) * scale;
+		}
+		return spherePoints_0;
+	}
+
+	void Start () {
+		prefab = Resources.Load("objects/Cube 3") as GameObject;
+
+		Create ();
+
+		GameObject redlightObject = GameObject.FindGameObjectWithTag("redlight");
+		redLight = redlightObject.GetComponent<Light>();
+
+
+	}
+
+	void Update () {
+		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.Hamming);
+
+		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
+
+		cubes = GameObject.FindGameObjectsWithTag ("cubes");
+
+		int jumpSamples = 0;
+		float maxSample = 0;
+		float sampleAverage = 0;
+
+		for (int n = 0; n < numberOfObjects; n++) {
+			maxSample = Mathf.Max (maxSample, spectrum [n]);
+			sampleAverage = sampleAverage + spectrum[n];
+		}
+		sampleAverage = sampleAverage / 1024;
+		sampleAverage *= 1000;
+		maxSample *= 1000;
+
+
+		// Messing with the light
+
+
+		if (redLight.intensity >= 7) {
+			lightGlow = true;
+
+		} else if(redLight.intensity <= 1){
+			lightGlow = false;
+		}
+
+		if (!lightGlow) {
+			redLight.intensity += Time.deltaTime;
+			redLight.bounceIntensity += Time.deltaTime;
+		} else if(lightGlow) {
+			redLight.intensity -= Time.deltaTime;
+			redLight.bounceIntensity -= Time.deltaTime;
+		}
+		
+
+		// Iterate through all cubes, distort, etc;
+
+
+		for (int i = 0; i < numberOfObjects; i++) {
+
+
+			float spectrum_height = spectrum[i] * 40;
+			jumpSamples += 5;
+			int spectrum_max = 10;
+			float spectrum_min = 0.1f*40;
+
+			if (spectrum_height >= spectrum_max) {
+				spectrum_height = spectrum_max;
+			}
+				
+
+			Vector3 origPos = cubes [i].transform.position;
+			Vector3 modPos;
+
+
+
+
+			//float distanceToZero = Vector3.Distance(cubes[i].transform.position, Vector3.zero);
+
+			if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) >= sphereScale) {
+				modPos = Vector3.MoveTowards (cubes [i].transform.position, Vector3.zero, 400*Time.deltaTime);
+				cubes [i].transform.position = modPos;
+			
+			} else if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) < sphereScale) {
+				modPos = Vector3.MoveTowards(origPos, Vector3.zero, -spectrum_height* maxSample*100*Time.deltaTime);
+				cubes [i].transform.position = modPos;
+			}
+
+
+
+
+			//cubes [i].GetComponent<Renderer> ().material.color = altColor;
+
+
+
+		}
+
+		cam.transform.RotateAround (Vector3.zero, new Vector3(1,1,1), -10*Time.deltaTime);
+
+
+
+
+	}
+}
