@@ -9,7 +9,7 @@ public class PointsOnSphere : MonoBehaviour {
 	GameObject [] cubes;
 
 	Renderer rend;
-	//Color altColor = Color.white;
+
 	public float size = 20;
 
 	public bool transformBool = false;
@@ -17,15 +17,13 @@ public class PointsOnSphere : MonoBehaviour {
 	int sphereScale = 500;
 
 	public Light redLight;
-
 	public bool lightGlow = false;
 
 
-	[ContextMenu("Create Points")]
 	void Create () {
-		var points = UniformPointsOnSphere(numberOfObjects, sphereScale);
+		Vector3[] points = UniformPointsOnSphere(numberOfObjects, sphereScale);
 		for(var i=0; i<numberOfObjects; i++) {
-			Instantiate(prefab, transform.position+points[i], Quaternion.identity);
+			Instantiate(prefab, points[i], Quaternion.identity);
 		}
 	}
 
@@ -33,6 +31,7 @@ public class PointsOnSphere : MonoBehaviour {
 		Vector3[] spherePoints_0 = new Vector3[numberOfObjects];
 		var i = Mathf.PI * (3 - Mathf.Sqrt(5));
 		var o = 2 / (float)numberOfObjects;
+
 		for(var k=0; k<numberOfObjects; k++) {
 			var y = k * o - 1 + (o / 2);
 			var r = Mathf.Sqrt(1 - y*y);
@@ -54,7 +53,8 @@ public class PointsOnSphere : MonoBehaviour {
 	}
 
 	void Update () {
-		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.Hamming);
+
+		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
 
@@ -99,13 +99,13 @@ public class PointsOnSphere : MonoBehaviour {
 
 
 			float spectrum_height = spectrum[i] * 40;
-			jumpSamples += 5;
 			int spectrum_max = 10;
-			float spectrum_min = 0.1f*40;
+			float spectrum_min = 0.01f;
 
 			if (spectrum_height >= spectrum_max) {
 				spectrum_height = spectrum_max;
 			}
+
 				
 
 			Vector3 origPos = cubes [i].transform.position;
@@ -116,11 +116,12 @@ public class PointsOnSphere : MonoBehaviour {
 
 			//float distanceToZero = Vector3.Distance(cubes[i].transform.position, Vector3.zero);
 
-			if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) >= sphereScale) {
+			if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) > sphereScale) {
 				modPos = Vector3.MoveTowards (cubes [i].transform.position, Vector3.zero, 400*Time.deltaTime);
 				cubes [i].transform.position = modPos;
 			
-			} else if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) < sphereScale) {
+			} else if (Vector3.Distance (Vector3.zero, cubes [i].transform.position) <= sphereScale) {
+				
 				modPos = Vector3.MoveTowards(origPos, Vector3.zero, -spectrum_height* maxSample*100*Time.deltaTime);
 				cubes [i].transform.position = modPos;
 			}

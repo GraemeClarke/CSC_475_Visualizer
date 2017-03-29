@@ -9,13 +9,12 @@ public class eq_spectrum : MonoBehaviour {
 	private GameObject prefab2;
 	public enum DrawMode {Circle, Line};
 	public DrawMode drawmode; 
-	public int numberOfObjects = 20;
-	public float radius = 5f;
+	public int numberOfObjects;
+	public float radius;
 	GameObject [] cubes;
 	GameObject [] cubes2;
 	Renderer rend;
 	Color altColor = Color.white;
-
 
 
 	// Use this for initialization
@@ -25,7 +24,9 @@ public class eq_spectrum : MonoBehaviour {
 
 		prefab = Resources.Load("objects/Cube") as GameObject;
 		prefab2 = Resources.Load ("objects/Cube 2") as GameObject;
+
 		rend = GetComponent<Renderer>();
+
 		float lineLength = 20;
 		float intialLinePos = 0 - lineLength / 2;
 
@@ -52,28 +53,31 @@ public class eq_spectrum : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.Hamming);
+		
+		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
 
 		for (int i = 0; i < numberOfObjects; i++) {
-			Vector3 previousScale = cubes [i].transform.localScale;
+			
+			Vector3 scale = cubes [i].transform.localScale;
 			Vector3 cubePos = cubes[i].transform.position;
 
 			float spectrum_height = spectrum[i] * 40;
 			int spectrum_max = 5;
 
 			if (spectrum_height >= spectrum_max) {
-				spectrum_height = spectrum_height * 0.5f;
+				spectrum_height = spectrum_height* 0.5f;
 			}
 
-			previousScale.y = Mathf.Lerp(previousScale.y, spectrum_height, Time.deltaTime * 30);
-			Vector3 modPos = new Vector3(cubes[i].transform.position.x,previousScale.y/2,cubes[i].transform.position.z);
+			scale.y = Mathf.Lerp(scale.y, spectrum_height, Time.deltaTime * 30);
+
+			Vector3 modPos = new Vector3(cubes[i].transform.position.x,scale.y/2,cubes[i].transform.position.z);
 			Vector3 modPos2 = new Vector3(cubes[i].transform.position.x,spectrum_height,cubes[i].transform.position.z);
 
 			cubes [i].GetComponent<Renderer> ().material.color = altColor;
 			cubes [i].transform.position = modPos;
-			cubes [i].transform.localScale = previousScale;
+			cubes [i].transform.localScale = scale;
 
 			if (spectrum_height > cubes2 [i].transform.position.y) {
 				cubes2[i].transform.position = modPos2;
