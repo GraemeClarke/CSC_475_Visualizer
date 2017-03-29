@@ -17,7 +17,7 @@ public class eq_spectrum : MonoBehaviour {
 	Color altColor = Color.white;
 
 
-	// Use this for initialization
+	// Initialize scene
 	void Start () {
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
@@ -51,7 +51,7 @@ public class eq_spectrum : MonoBehaviour {
 		cubes2 = GameObject.FindGameObjectsWithTag("cubes2");
 	}
 	
-	// Update is called once per frame
+	// Update scene (called once per frame)
 	void Update () {
 		
 		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);

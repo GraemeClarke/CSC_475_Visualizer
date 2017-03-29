@@ -5,21 +5,20 @@ using UnityEngine;
 public class PointsOnSphere : MonoBehaviour {
 
 	private GameObject prefab;
+	
 	public int numberOfObjects;
-	GameObject [] cubes;
-
-	Renderer rend;
-
+	public Light redLight;
+	public bool lightGlow = false;
 	public float size = 20;
-
 	public bool transformBool = false;
+	
+	GameObject [] cubes;
+	Renderer rend;
 
 	int sphereScale = 500;
 
-	public Light redLight;
-	public bool lightGlow = false;
-
-
+	
+	// Create cubes
 	void Create () {
 		Vector3[] points = UniformPointsOnSphere(numberOfObjects, sphereScale);
 		for(var i=0; i<numberOfObjects; i++) {
@@ -27,6 +26,7 @@ public class PointsOnSphere : MonoBehaviour {
 		}
 	}
 
+	// Determine the position of each cube
 	Vector3[] UniformPointsOnSphere(int numberOfObjects, float scale) {
 		Vector3[] spherePoints_0 = new Vector3[numberOfObjects];
 		var i = Mathf.PI * (3 - Mathf.Sqrt(5));
@@ -41,6 +41,7 @@ public class PointsOnSphere : MonoBehaviour {
 		return spherePoints_0;
 	}
 
+	// Initialize scene
 	void Start () {
 		prefab = Resources.Load("objects/Cube 3") as GameObject;
 
@@ -52,6 +53,7 @@ public class PointsOnSphere : MonoBehaviour {
 
 	}
 
+	// Update scene (called once per frame)
 	void Update () {
 
 		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
