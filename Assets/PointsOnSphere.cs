@@ -19,6 +19,7 @@ public class PointsOnSphere : MonoBehaviour {
 
 	
 	// Create cubes
+
 	void Create () {
 		Vector3[] points = UniformPointsOnSphere(numberOfObjects, sphereScale);
 		for(var i=0; i<numberOfObjects; i++) {
@@ -27,6 +28,7 @@ public class PointsOnSphere : MonoBehaviour {
 	}
 
 	// Determine the position of each cube
+
 	Vector3[] UniformPointsOnSphere(int numberOfObjects, float scale) {
 		Vector3[] spherePoints_0 = new Vector3[numberOfObjects];
 		var i = Mathf.PI * (3 - Mathf.Sqrt(5));
@@ -42,6 +44,7 @@ public class PointsOnSphere : MonoBehaviour {
 	}
 
 	// Initialize scene
+
 	void Start () {
 		prefab = Resources.Load("objects/Cube 3") as GameObject;
 
@@ -49,11 +52,10 @@ public class PointsOnSphere : MonoBehaviour {
 
 		GameObject redlightObject = GameObject.FindGameObjectWithTag("redlight");
 		redLight = redlightObject.GetComponent<Light>();
-
-
 	}
 
 	// Update scene (called once per frame)
+
 	void Update () {
 
 		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
@@ -77,7 +79,6 @@ public class PointsOnSphere : MonoBehaviour {
 
 		// Messing with the light
 
-
 		if (redLight.intensity >= 7) {
 			lightGlow = true;
 
@@ -92,13 +93,10 @@ public class PointsOnSphere : MonoBehaviour {
 			redLight.intensity -= Time.deltaTime;
 			redLight.bounceIntensity -= Time.deltaTime;
 		}
-		
 
 		// Iterate through all cubes, distort, etc;
 
-
 		for (int i = 0; i < numberOfObjects; i++) {
-
 
 			float spectrum_height = spectrum[i] * 40;
 			int spectrum_max = 10;
@@ -107,14 +105,9 @@ public class PointsOnSphere : MonoBehaviour {
 			if (spectrum_height >= spectrum_max) {
 				spectrum_height = spectrum_max;
 			}
-
 				
-
 			Vector3 origPos = cubes [i].transform.position;
 			Vector3 modPos;
-
-
-
 
 			//float distanceToZero = Vector3.Distance(cubes[i].transform.position, Vector3.zero);
 
@@ -127,20 +120,12 @@ public class PointsOnSphere : MonoBehaviour {
 				modPos = Vector3.MoveTowards(origPos, Vector3.zero, -spectrum_height* maxSample*100*Time.deltaTime);
 				cubes [i].transform.position = modPos;
 			}
-
-
-
-
+				
 			//cubes [i].GetComponent<Renderer> ().material.color = altColor;
-
-
 
 		}
 
 		cam.transform.RotateAround (Vector3.zero, new Vector3(1,1,1), -10*Time.deltaTime);
-
-
-
 
 	}
 }

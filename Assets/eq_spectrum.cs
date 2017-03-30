@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class eq_spectrum : MonoBehaviour {
 
-
 	private GameObject prefab;
 	private GameObject prefab2;
+
 	public enum DrawMode {Circle, Line};
 	public DrawMode drawmode; 
 	public int numberOfObjects;
 	public float radius;
+
 	GameObject [] cubes;
 	GameObject [] cubes2;
 	Renderer rend;
+
 	Color altColor = Color.white;
 
 
 	// Initialize scene
+
 	void Start () {
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
@@ -52,6 +55,7 @@ public class eq_spectrum : MonoBehaviour {
 	}
 	
 	// Update scene (called once per frame)
+
 	void Update () {
 		
 		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
@@ -87,6 +91,5 @@ public class eq_spectrum : MonoBehaviour {
 		if (drawmode == DrawMode.Circle) {
 			cam.transform.RotateAround (Vector3.zero, new Vector3(0,1,0), 5*Time.deltaTime);
 		}
-			
 	}
 }
