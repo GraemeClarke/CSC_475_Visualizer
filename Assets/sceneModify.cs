@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class sceneModify : MonoBehaviour {
 
@@ -13,13 +14,13 @@ public class sceneModify : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKeyDown ("1")) {
-			Application.LoadLevel(0);
+			SceneManager.LoadScene(0);
 		}
 		else if (Input.GetKeyDown ("2")) {
-			Application.LoadLevel(1);
+			SceneManager.LoadScene(1);
 		}
 		else if (Input.GetKeyDown ("3")) {
-			Application.LoadLevel(2);
+			SceneManager.LoadScene(2);
 		}
 		
 	}

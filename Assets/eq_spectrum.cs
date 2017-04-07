@@ -14,7 +14,6 @@ public class eq_spectrum : MonoBehaviour {
 
 	GameObject [] cubes;
 	GameObject [] cubes2;
-	Renderer rend;
 
 	Color altColor = Color.white;
 
@@ -28,7 +27,7 @@ public class eq_spectrum : MonoBehaviour {
 		prefab = Resources.Load("objects/Cube") as GameObject;
 		prefab2 = Resources.Load ("objects/Cube 2") as GameObject;
 
-		rend = GetComponent<Renderer>();
+		Renderer rend = GetComponent<Renderer>();
 
 		float lineLength = 20;
 		float intialLinePos = 0 - lineLength / 2;
@@ -57,8 +56,11 @@ public class eq_spectrum : MonoBehaviour {
 	// Update scene (called once per frame)
 
 	void Update () {
+
+		GameObject audioObject = GameObject.FindGameObjectWithTag ("audio");
+		AudioSource audio = audioObject.GetComponent<AudioSource> ();
 		
-		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
+		float[] spectrum = audio.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
 

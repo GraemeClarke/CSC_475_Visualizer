@@ -9,18 +9,27 @@ public class audioModify : MonoBehaviour {
 	bool isPlaying;
 	int timer = 0;
 
-	// Use this for initialization
+	private static audioModify instance = null;
+	public static audioModify Instance {
+		get { return instance; }
+	}
+
 	void Start () {
-		AudioSource audioSourceMusic = GetComponent<AudioSource>();
-
-		audioSourceMusic.Play();
-
-		clip = audioSourceMusic.clip;
-
 
 		isPlaying = true;
-		
+
+		if (instance != null && instance != this) {
+			Destroy(this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad(this.gameObject);
 	}
+
+
+
+
 
 	public void PlaySong()
 	{        

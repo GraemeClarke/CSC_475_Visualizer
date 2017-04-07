@@ -64,7 +64,7 @@ public class PointsOnSphere : MonoBehaviour {
 
 		cubes = GameObject.FindGameObjectsWithTag ("cubes");
 
-		int jumpSamples = 0;
+		//int jumpSamples = 0; Not being used, possible to reference multiple samples but who knows
 		float maxSample = 0;
 		float sampleAverage = 0;
 
