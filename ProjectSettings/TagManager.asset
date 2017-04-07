@@ -9,6 +9,7 @@ TagManager:
   - redlight
   - greenlight
   - bluelight
+  - cubespawn
   layers:
   - Default
   - TransparentFX

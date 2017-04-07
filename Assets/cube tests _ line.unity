@@ -378,9 +378,10 @@ GameObject:
   - component: {fileID: 1622767120}
   - component: {fileID: 1622767122}
   - component: {fileID: 1622767121}
+  - component: {fileID: 1622767123}
   m_Layer: 0
   m_Name: CubeSpawn
-  m_TagString: Untagged
+  m_TagString: cubespawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,6 +493,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1622767123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622767119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d138b5a1b38b456082ca495ef35e707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1853658950
 Prefab:
   m_ObjectHideFlags: 0
