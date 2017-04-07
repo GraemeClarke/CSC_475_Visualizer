@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/sphereCubes.unity
+  - enabled: 1
+    path: Assets/cube tests _ line.unity
+  - enabled: 1
+    path: Assets/cube tests.unity

@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59631519c72a24f1187e6c41dee1d022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawmode: 0
+  drawmode: 1
   numberOfObjects: 100
   radius: 5
 --- !u!82 &1622767122
@@ -492,7 +492,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!1001 &1878129279
+--- !u!1001 &1853658950
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
