@@ -11,6 +11,8 @@ public class audioModify : MonoBehaviour {
 	bool musicStarted = false;
 	int timer = 0;
 	int audioIndex = 0;
+	float wait;
+	bool check;
 
 	private static audioModify instance = null;
 	public static audioModify Instance {
@@ -40,11 +42,17 @@ public class audioModify : MonoBehaviour {
 		myMusic = Resources.LoadAll("audio",typeof(AudioClip));
 		audio.clip = myMusic[audioIndex] as AudioClip;
 
+		check = false;
+
 		if (!musicStarted) {
 
 			musicStarted = true;
+			wait = audio.clip.length;
 			audio.Play ();
 		}
+			
+		wait-=Time.deltaTime;
+
 
 		if (Input.GetKeyDown("space") && timer > 5 && !isPlaying) {
 			audio.Play ();
@@ -62,28 +70,31 @@ public class audioModify : MonoBehaviour {
 			if (audioIndex != 0) {
 				audioIndex--;
 				audio.clip = myMusic [audioIndex] as AudioClip;
+				wait = audio.clip.length;
 				audio.Play ();
 			} else {
 				audioIndex = myMusic.Length-1;
 				audio.clip = myMusic [audioIndex] as AudioClip;
+				wait = audio.clip.length;
 				audio.Play ();
 			}
 		}
 
-		if(Input.GetKeyDown("right")) {
+		if(Input.GetKeyDown("right") || (wait<0f)) {
 
 			if (audioIndex != myMusic.Length - 1) {
 				audioIndex++;
 				audio.clip = myMusic [audioIndex] as AudioClip;
+				wait = audio.clip.length;
 				audio.Play ();
 			} else {
 				audioIndex = 0;
 				audio.clip = myMusic [audioIndex] as AudioClip;
+				wait = audio.clip.length;
 				audio.Play ();
 			}
 
 		}
-
 
 
 		

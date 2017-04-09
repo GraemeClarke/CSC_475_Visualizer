@@ -92,30 +92,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &476227992 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1937394448074130, guid: ad528c84c1fde4e5ea4b110133737ad6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1231791295}
---- !u!82 &476227995 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82080612001017940, guid: ad528c84c1fde4e5ea4b110133737ad6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1231791295}
---- !u!114 &476227997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 476227992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422807dfce8bd49ee90c032bbc6f790c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 476227995}
-  clips: []
-  currentIndex: 0
 --- !u!1 &613054940
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,21 +274,6 @@ Prefab:
     - target: {fileID: 4796205663727590, guid: ad528c84c1fde4e5ea4b110133737ad6, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114751572503986980, guid: ad528c84c1fde4e5ea4b110133737ad6,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114304045936855134, guid: ad528c84c1fde4e5ea4b110133737ad6,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82080612001017940, guid: ad528c84c1fde4e5ea4b110133737ad6,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad528c84c1fde4e5ea4b110133737ad6, type: 2}
