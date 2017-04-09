@@ -60,7 +60,7 @@ public class audioModify : MonoBehaviour {
 			timer = 0;
 		}
 
-		if (Input.GetKeyDown("space") && audio.isPlaying && isPlaying) {
+		if (Input.GetKeyDown("space") && timer > 5 && isPlaying) {
 			audio.Pause ();
 			isPlaying = false;
 			timer = 0;
