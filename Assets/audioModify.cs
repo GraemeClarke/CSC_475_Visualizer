@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class audioModify : MonoBehaviour {
 
 	AudioSource audio;
 	Object[] myMusic;
 
+	public Text songText;
+	bool hideText = false;
+
 	bool isPlaying;
 	bool musicStarted = false;
 	int timer = 0;
 	int audioIndex = 0;
 	float wait;
-	bool check;
 
 	private static audioModify instance = null;
 	public static audioModify Instance {
@@ -31,6 +34,8 @@ public class audioModify : MonoBehaviour {
 			instance = this;
 		}
 		DontDestroyOnLoad(this.gameObject);
+
+
 	}
 		
 	void Update () {
@@ -42,7 +47,26 @@ public class audioModify : MonoBehaviour {
 		myMusic = Resources.LoadAll("audio",typeof(AudioClip));
 		audio.clip = myMusic[audioIndex] as AudioClip;
 
-		check = false;
+		string str1 = audio.clip.ToString ();
+		string str2 = "(UnityEngine.AudioClip)";
+		string result = str1.Replace (str2, "");
+
+		if (!hideText) {
+			songText.text = result;
+		} else {
+			songText.text = "";
+		}
+
+		if (Input.GetKeyDown ("h")) {
+			if (hideText == true) {
+				hideText = false;
+			} else {
+				hideText = true;
+			}
+		}
+
+
+
 
 		if (!musicStarted) {
 
