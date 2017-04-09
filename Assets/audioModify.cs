@@ -54,13 +54,13 @@ public class audioModify : MonoBehaviour {
 		wait-=Time.deltaTime;
 
 
-		if (Input.GetKeyDown("space") && timer > 5 && !isPlaying) {
+		if (Input.GetKeyDown("space") && timer > 1 && !isPlaying) {
 			audio.Play ();
 			isPlaying = true;
 			timer = 0;
 		}
 
-		if (Input.GetKeyDown("space") && timer > 5 && isPlaying) {
+		if (Input.GetKeyDown("space") && timer > 1 && isPlaying) {
 			audio.Pause ();
 			isPlaying = false;
 			timer = 0;
