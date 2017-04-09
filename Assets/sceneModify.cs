@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class sceneModify : MonoBehaviour {
 
+	void Awake() {
+		Application.targetFrameRate = 30;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
