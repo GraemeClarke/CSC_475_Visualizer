@@ -54,7 +54,7 @@ public class audioModify : MonoBehaviour {
 		wait-=Time.deltaTime;
 
 
-		if (Input.GetKeyDown("space") && !audio.isPlaying && !isPlaying) {
+		if (Input.GetKeyDown("space") && timer > 5 && !isPlaying) {
 			audio.Play ();
 			isPlaying = true;
 			timer = 0;
@@ -71,11 +71,13 @@ public class audioModify : MonoBehaviour {
 				audioIndex--;
 				audio.clip = myMusic [audioIndex] as AudioClip;
 				wait = audio.clip.length;
+				isPlaying = true;
 				audio.Play ();
 			} else {
 				audioIndex = myMusic.Length-1;
 				audio.clip = myMusic [audioIndex] as AudioClip;
 				wait = audio.clip.length;
+				isPlaying = true;
 				audio.Play ();
 			}
 		}
@@ -86,11 +88,13 @@ public class audioModify : MonoBehaviour {
 				audioIndex++;
 				audio.clip = myMusic [audioIndex] as AudioClip;
 				wait = audio.clip.length;
+				isPlaying = true;
 				audio.Play ();
 			} else {
 				audioIndex = 0;
 				audio.clip = myMusic [audioIndex] as AudioClip;
 				wait = audio.clip.length;
+				isPlaying = true;
 				audio.Play ();
 			}
 
