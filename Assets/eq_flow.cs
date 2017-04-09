@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eq_spectrum : MonoBehaviour {
+public class eq_flow : MonoBehaviour {
 
 	private GameObject prefab;
 	private GameObject prefab2;
