@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/cube tests line.unity
   - enabled: 1
     path: Assets/cube tests tunnel.unity
+  - enabled: 1
+    path: Assets/cube tests flow.unity
