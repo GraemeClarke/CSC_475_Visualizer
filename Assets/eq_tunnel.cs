@@ -5,13 +5,14 @@ using UnityEngine;
 public class eq_tunnel : MonoBehaviour {
 
 	private GameObject prefab;
-	private GameObject prefab2;
 
 	public int numberOfObjects;
 	public float radius;
 
+	int cubeWait = 0;
+
 	GameObject [] cubes;
-	GameObject [] cubes2;
+	GameObject[] placedCubes;
 
 	Color altColor = Color.white;
 
@@ -22,29 +23,11 @@ public class eq_tunnel : MonoBehaviour {
 
 		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
 
-		prefab = Resources.Load("objects/Cube") as GameObject;
-		prefab2 = Resources.Load ("objects/Cube 2") as GameObject;
+		prefab = Resources.Load("objects/Cube 4") as GameObject;
 
 		Renderer rend = GetComponent<Renderer>();
 
-		float lineLength = 20;
-		float intialLinePos = 0 - lineLength / 2;
 
-		for (int i = 0; i < numberOfObjects; i++) {
-			
-			float angle = i * Mathf.PI * 2 / numberOfObjects;
-			Vector3 circPos = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-			Vector3 linePos = new Vector3(intialLinePos + i*lineLength/numberOfObjects, 0, 0);
-
-
-			Instantiate(prefab, circPos, Quaternion.identity);
-			Instantiate(prefab2, circPos, Quaternion.identity);
-			cam.transform.position += new Vector3(0,1/(float)numberOfObjects,-0.5f/(float)numberOfObjects);
-
-
-		}
-		cubes = GameObject.FindGameObjectsWithTag ("cubes");
-		cubes2 = GameObject.FindGameObjectsWithTag("cubes2");
 	}
 	
 	// Update scene (called once per frame)
@@ -56,33 +39,54 @@ public class eq_tunnel : MonoBehaviour {
 		
 		float[] spectrum = audio.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
 
-		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
+		placedCubes = GameObject.FindGameObjectsWithTag ("placedcube");
 
-		for (int i = 0; i < numberOfObjects; i++) {
-			
-			Vector3 scale = cubes [i].transform.localScale;
-			Vector3 cubePos = cubes[i].transform.position;
 
-			float spectrum_height = spectrum[i] * 40;
-			int spectrum_max = 5;
+		for (int i = 0; i < placedCubes.Length; i++) {
 
-			if (spectrum_height >= spectrum_max) {
-				spectrum_height = spectrum_height* 0.5f;
-			}
-
-			scale.y = Mathf.Lerp(scale.y, spectrum_height, Time.deltaTime * 30);
-
-			Vector3 modPos = new Vector3(cubes[i].transform.position.x,scale.y/2,cubes[i].transform.position.z);
-			Vector3 modPos2 = new Vector3(cubes[i].transform.position.x,spectrum_height,cubes[i].transform.position.z);
-
-			cubes [i].GetComponent<Renderer> ().material.color = altColor;
-			cubes [i].transform.position = modPos;
-			cubes [i].transform.localScale = scale;
-
-			if (spectrum_height > cubes2 [i].transform.position.y) {
-				cubes2[i].transform.position = modPos2;
+			if (placedCubes [i].transform.position.y > 20) {
+				Destroy (placedCubes [i]);
+			} else {
+				placedCubes [i].transform.position += new Vector3 (0, 10 * Time.deltaTime, 0);
 			}
 		}
+
+		for (int i = 0; i < numberOfObjects; i++) {
+
+			float spectrum_height = spectrum[i] * 100;
+			float spectrum_max = 1f;
+
+			if (spectrum_height >= spectrum_max) {
+				spectrum_height *= 0.1f;
+			}
+
+			if (cubeWait == 0) {
+
+				float angle = i * Mathf.PI * 2 / numberOfObjects;
+				Vector3 circPos = new Vector3 (Mathf.Cos (angle), 0, Mathf.Sin (angle)) * radius;
+
+				prefab.transform.localScale = new Vector3(spectrum_height,1,spectrum_height);
+				//prefab.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+				//circPos = Vector3.MoveTowards(circPos, new Vector3(0,circPos.y,0), spectrum_height*2);
+				prefab.tag = "placedcube";
+				
+				Instantiate (prefab, circPos, Quaternion.identity);
+
+				if (i == numberOfObjects - 1) {
+					cubeWait = 0;
+				}
+
+
+			} else if (i == numberOfObjects - 1) {
+				cubeWait--;
+			}
+
+				
+		}
+
+
+		GameObject cam = GameObject.FindGameObjectWithTag ("MainCamera");
+		cam.transform.RotateAround (Vector3.zero, new Vector3(0,1,0), 10*Time.deltaTime);
 
 	}
 }

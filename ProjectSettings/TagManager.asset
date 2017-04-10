@@ -11,6 +11,7 @@ TagManager:
   - bluelight
   - cubespawn
   - audio
+  - placedcube
   layers:
   - Default
   - TransparentFX
