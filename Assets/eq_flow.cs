@@ -20,21 +20,6 @@ public class eq_flow : MonoBehaviour {
 		prefab = Resources.Load("objects/Cube") as GameObject;
 
 		Renderer rend = GetComponent<Renderer>();
-
-//		float lineLength = 20;
-//		float intialLinePos = 0 - lineLength / 2;
-
-//		for (int i = 0; i < numberOfObjects; i++) {
-//			
-//			Vector3 linePos = new Vector3(intialLinePos + i*lineLength/numberOfObjects, 0, 0);
-//
-//			Instantiate(prefab, linePos, Quaternion.identity);
-//		}
-//		cubes = GameObject.FindGameObjectsWithTag ("cubes");
-//
-//		for (int i = 0; i < cubes.Length; i++) {
-//			cubes.Add (cubes [i]);
-//		}
 	}
 	
 	// Update scene (called once per frame)
@@ -51,7 +36,10 @@ public class eq_flow : MonoBehaviour {
 		float lineLength = 20;
 		float intialLinePos = 0 - lineLength / 2;
 
+		// Collect all cubes
 		cubes = GameObject.FindGameObjectsWithTag ("cubes");
+
+		// Move cubes away from the viewer
 
 		for (int i = 0; i < cubes.Length; i++) {
 
@@ -59,11 +47,10 @@ public class eq_flow : MonoBehaviour {
 				cubes [i].transform.Translate(Vector3.forward * Time.deltaTime * 4);
 			} else {
 				Destroy (cubes [i]);
-
 			}
-
-
 		}
+
+		// Generate new cubes, and set them to the current spectrum 
 
 		for (int i = 0; i < numberOfObjects; i++) {
 
@@ -81,6 +68,5 @@ public class eq_flow : MonoBehaviour {
 
 			Instantiate(prefab, linePos, Quaternion.identity);
 		}
-
 	}
 }
