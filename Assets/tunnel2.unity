@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05339195, g: 0.15094897, b: 0.19478199, a: 1}
+  m_IndirectSpecularColor: {r: 0.28717816, g: 0.335866, b: 0.5218967, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 0c481f86147794d81b8754aaf06bf399,
+  m_LightingDataAsset: {fileID: 112000001, guid: 27bc7184b47554e2b8d913c156c60e6f,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -177,7 +177,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086987274}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.7379308, g: 0, b: 1, a: 1}
@@ -502,7 +502,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1622767120}
-  - component: {fileID: 1622767122}
+  - component: {fileID: 1622767121}
   m_Layer: 0
   m_Name: CubeSpawn
   m_TagString: Untagged
@@ -523,7 +523,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1622767122
+--- !u!114 &1622767121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -531,10 +531,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622767119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842d6ac40a3eb4842be1cf7dc11a34b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2efd1f52e8da248a393c0276995b4be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfObjects: 30
+  numberOfObjects: 75
   radius: 5
 --- !u!1001 &1861263087
 Prefab:

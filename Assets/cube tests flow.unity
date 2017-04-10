@@ -36,7 +36,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1076389939}
   m_IndirectSpecularColor: {r: 0.05339195, g: 0.15094897, b: 0.19478199, a: 1}
 --- !u!157 &3
 LightmapSettings:
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 0c481f86147794d81b8754aaf06bf399,
+  m_LightingDataAsset: {fileID: 112000001, guid: f85ad41b194344f19bc18683dbe52d15,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -192,38 +192,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4827376679759434, guid: 2e0eecf3aa0604858b5b00af4622c3a8, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e0eecf3aa0604858b5b00af4622c3a8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1254242971
+--- !u!1 &1076389938
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1254242973}
-  - component: {fileID: 1254242972}
+  - component: {fileID: 1076389940}
+  - component: {fileID: 1076389939}
   m_Layer: 0
-  m_Name: Directional light
+  m_Name: Directional light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!108 &1254242972
+--- !u!108 &1076389939
 Light:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254242971}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1076389938}
+  m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
-  m_Color: {r: 0.22610295, g: 0.9044118, b: 0.7079361, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.6606834, g: 0.9558824, b: 0.87037647, a: 1}
+  m_Intensity: 1.95
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -247,18 +247,18 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1254242973
+--- !u!4 &1076389940
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254242971}
+  m_GameObject: {fileID: 1076389938}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 5.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1444477523
 GameObject:
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188046c51e333472ab1e874f64c352a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfObjects: 20
+  numberOfObjects: 30
 --- !u!1 &2052502920
 GameObject:
   m_ObjectHideFlags: 0
