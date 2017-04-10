@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/tunnel1.unity
   - enabled: 1
     path: Assets/tunnel2.unity
+  - enabled: 1
+    path: Assets/sphereCubes 1.unity

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PointsOnSphere : MonoBehaviour {
 
-	private GameObject prefab;
+	public GameObject prefab;
 	
 	public int numberOfObjects;
-	public Light redLight;
-	public bool lightGlow = false;
+	Light redLight;
+	bool lightGlow = false;
 	public float size = 20;
 	public bool transformBool = false;
 	
@@ -46,7 +46,7 @@ public class PointsOnSphere : MonoBehaviour {
 	// Initialize scene
 
 	void Start () {
-		prefab = Resources.Load("objects/Cube 3") as GameObject;
+		//prefab = Resources.Load("objects/Cube 3") as GameObject;
 
 		Create ();
 

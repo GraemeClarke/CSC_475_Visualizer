@@ -47,7 +47,7 @@ public class eq_tunnel2 : MonoBehaviour {
 			if (placedCubes [i].transform.position.y > 20) {
 				Destroy (placedCubes [i]);
 			} else {
-				placedCubes [i].transform.position += new Vector3 (0, 8 * Time.deltaTime, 0);
+				placedCubes [i].transform.position += new Vector3 (0, 12 * Time.deltaTime, 0);
 			}
 		}
 

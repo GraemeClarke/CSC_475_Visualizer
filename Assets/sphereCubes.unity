@@ -563,9 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0255f5cca99c9405e933f36c88676125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1732732040244150, guid: bf739d566dc134a42bcd131b795c85bb, type: 2}
   numberOfObjects: 250
-  redLight: {fileID: 0}
-  lightGlow: 0
   size: 1
   transformBool: 0
 --- !u!4 &1945988782
