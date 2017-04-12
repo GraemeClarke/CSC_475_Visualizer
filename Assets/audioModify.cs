@@ -64,9 +64,7 @@ public class audioModify : MonoBehaviour {
 				hideText = true;
 			}
 		}
-
-
-
+			
 
 		if (!musicStarted) {
 

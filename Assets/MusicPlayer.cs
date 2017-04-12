@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEngine.UI;
+
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -11,11 +13,20 @@ public class MusicPlayer : MonoBehaviour
 	public AudioSource source;
 	public List<AudioClip> clips = new List<AudioClip>();
 
+	public Text songText;
+	bool hideText = false;
+	bool isPlaying;
+
 	[SerializeField] [HideInInspector] private int currentIndex = 0;
 
 	private FileInfo[] soundFiles;
 	private List<string> validExtensions = new List<string> { ".ogg", ".wav" }; // Don't forget the "." i.e. "ogg" won't work - cause Path.GetExtension(filePath) will return .ext, not just ext.
-	private string absolutePath = "./"; // relative path to where the app is running - change this to "./music" in your case
+	private string absolutePath = "./"; // relative path to where the app is running
+
+	private static MusicPlayer instance = null;
+	public static MusicPlayer Instance {
+		get { return instance; }
+	}
 
 	void Start()
 	{
@@ -25,7 +36,22 @@ public class MusicPlayer : MonoBehaviour
 		if (source == null) source = gameObject.AddComponent<AudioSource>();
 
 		ReloadSounds();
+
+		isPlaying = true;
+
+		if (instance != null && instance != this) {
+			Destroy(this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad(this.gameObject);
+
 	}
+
+
+
+
 
 	void Update()
 	{
@@ -40,8 +66,23 @@ public class MusicPlayer : MonoBehaviour
 			Seek(SeekDirection.Forward);
 			PlayCurrent();
 		}
-		if (Input.GetKeyDown("shift")) {
-			ReloadSounds();
+			
+		string str1 = source.clip.ToString ();
+		string str2 = "(UnityEngine.AudioClip)";
+		string result = str1.Replace (str2, "");
+
+		if (!hideText) {
+			songText.text = result;
+		} else {
+			songText.text = "";
+		}
+
+		if (Input.GetKeyDown ("h")) {
+			if (hideText == true) {
+				hideText = false;
+			} else {
+				hideText = true;
+			}
 		}
 	}
 

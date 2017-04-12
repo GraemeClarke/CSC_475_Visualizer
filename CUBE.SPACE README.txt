@@ -1,0 +1,10 @@
+
+CUBE.SPACE >>
+
+Run the application. (Mac only)
+
+Skip songs with left and right arrow keys, skip visualizers with up and down arrow keys
+
+Show/Hide text with "H" key
+
+Enable/Disable "Auto-swap" of visualizers with "J" key (Swaps every 300 frames or so)
