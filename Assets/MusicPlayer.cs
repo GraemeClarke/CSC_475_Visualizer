@@ -20,7 +20,7 @@ public class MusicPlayer : MonoBehaviour
 	[SerializeField] [HideInInspector] private int currentIndex = 0;
 
 	private FileInfo[] soundFiles;
-	private List<string> validExtensions = new List<string> { ".ogg", ".wav" }; // Don't forget the "." i.e. "ogg" won't work - cause Path.GetExtension(filePath) will return .ext, not just ext.
+	private List<string> validExtensions = new List<string> { ".ogg", ".wav", ".flac" }; // Don't forget the "." i.e. "ogg" won't work - cause Path.GetExtension(filePath) will return .ext, not just ext.
 	private string absolutePath = "./"; // relative path to where the app is running
 
 	private static MusicPlayer instance = null;

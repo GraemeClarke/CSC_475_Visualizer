@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Cube.Space</string>
+	<string>cube.space</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 5.5.2f1 (3829d7f588f3). (c) 2017 Unity Technologies ApS. All rights reserved.</string>
 	<key>CFBundleIconFile</key>

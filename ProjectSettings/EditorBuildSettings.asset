@@ -20,6 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/sphereSpheres.unity
   - enabled: 1
+    path: Assets/sphereCubes 75.unity
+  - enabled: 1
     path: Assets/Spectogram_Line_1024.unity
   - enabled: 1
     path: Assets/Spectogram_Line_Avg.unity
