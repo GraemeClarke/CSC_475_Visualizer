@@ -1,7 +1,7 @@
 # cube.space
 An audio visualizer project designed intially for CSC 475 - Musicial Information Retrieval Techniques - continually being further developed. <br />
 
-![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Spectogram_Circle.png "Spectogram_Circle")
+![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Sphere_Cubes.png "Sphere Cubes")
 
 ## How to run:
 Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
@@ -9,6 +9,8 @@ Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
 For quick-launch/viewing, run "cube.space (demo version)". 
 
 To run wav file input version, run "cube.space (wav version)" from within the "WAV Reading Version" folder. Note that this version is experimental, music is unpausable and wont be played until initial hitting of **space** key. 
+
+![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Tunnel_Scale.png "Tunnel Scale")
 
 
 ## Controls
@@ -21,6 +23,9 @@ To run wav file input version, run "cube.space (wav version)" from within the "W
 -**H:** Show/hide song/visualizer title.
 <br />
 <br />
+
+![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Spectogram_Circle.png "Spectogram_Circle")
+
 
 ## Visualizations Included (In order of appearance) 
 *Tunnel_Scale:* Continuous rings composed of 70 cubes each move towards the screen while being uniformly scaled based on audio input (sample). 
