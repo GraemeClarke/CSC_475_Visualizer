@@ -1,4 +1,4 @@
-# CSC_475_Visualizer
+# CSC_475_Visualizer - cube.space
 Audio visualizer project designed intially for CSC 475 - Musicial Information Retrieval Techniques. Continually being developed. <br />
 
 ## How to run:
