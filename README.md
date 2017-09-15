@@ -1,5 +1,5 @@
 # cube.space
-Audio visualizer project designed intially for CSC 475 - Musicial Information Retrieval Techniques. Continually being developed. <br />
+An audio visualizer project designed intially for CSC 475 - Musicial Information Retrieval Techniques - continually being further developed. <br />
 
 ## How to run:
 Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
