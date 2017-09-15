@@ -4,7 +4,7 @@ An audio visualizer project designed intially for CSC 475 - Musicial Information
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Sphere_Cubes.png "Sphere Cubes")
 
 ## How to run:
-Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
+Download cube.space.zip to run on macOS, Windows (Untested), or Linux (Untested).
 
 For quick-launch/viewing, run "cube.space (demo version)". 
 
