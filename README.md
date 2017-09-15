@@ -1,8 +1,12 @@
-# CSC_475_Visualizer - cube.space
+# cube.space
 Audio visualizer project designed intially for CSC 475 - Musicial Information Retrieval Techniques. Continually being developed. <br />
 
 ## How to run:
 Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
+
+For quick-launch/viewing, run "cube.space (demo version)". 
+
+To run wav file input version, run "cube.space (wav version)" from within the "WAV Reading Version" folder. Note that this version is experimental, music is unpausable and wont be played until initial hitting of **space** key. 
 
 
 ## Controls
