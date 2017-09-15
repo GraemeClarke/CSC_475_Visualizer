@@ -6,10 +6,10 @@ Download .zip to run on macOS, Windows (Untested), or Linux (Untested).
 
 
 ## Controls
-***Left/Right:** Change song.
-***Up/Down:** Change visualizer.
-***Space:** Play/Pause
-***H:** Show/hide song/visualizer title.
+⋅⋅***Left/Right:** Change song.
+⋅⋅***Up/Down:** Change visualizer.
+⋅⋅***Space:** Play/Pause
+⋅⋅***H:** Show/hide song/visualizer title.
 <br />
 
 ## Visualizations Included (In order of appearance) 
