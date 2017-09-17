@@ -22,6 +22,8 @@ To run wav file input version, run "cube.space (wav version)" located in the fol
 <br />
 -**H:** Show/hide song/visualizer title.
 <br />
+-**J:** Enable/disable "auto swap" between visualizers.
+<br />
 <br />
 
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Spectogram_Circle.png "Spectogram_Circle")
