@@ -6,7 +6,9 @@ An audio visualizer project designed intially for CSC 475 - Musicial Information
 ## How to run:
 Download project .zip to run on macOS, Windows (Untested), or Linux (Untested).
 
-For quick-launch/viewing, run "cube.space (demo version)" or "cube.space (mic version)". 
+For quick-launch/viewing, run "cube.space (demo version)".
+
+For experimental/untested mic-input-based version, run "cube.space (mic version)". 
 
 The "demo version" contains a pre-selected list of songs, and the "mic version" uses built-in microphone input to create visualizations.
 
