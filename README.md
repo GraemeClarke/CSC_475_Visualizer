@@ -4,7 +4,7 @@ An audio visualizer project intially designed for CSC 475 - Musicial Information
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Sphere_Cubes.png "Sphere Cubes")
 
 ## How to run:
-Download project .zip to run on macOS, Windows (untested) or Linux (untested).
+Download project .zip to run on MacOS, Windows (untested) or Linux (untested).
 
 For quick-launch/viewing, run "cube.space (demo version)". 
 
@@ -15,9 +15,9 @@ For quick-launch/viewing, run "cube.space (demo version)".
    **Linux:** cube.space(demo version).x86
 <br />
 
-The "demo version" contains a pre-selected list of songs, and the "mic version" uses built-in microphone input to create visualizations.
+To run the built-in microphone, input-based version (MacOS only) run "cube.space(mic version).app"
 
-To run wav file input version, run "cube.space (wav version)" located in the folder "WAV Reading Version". This application file can be ran in any directory that has wave files, and it will recognize/visualize them in sort order. Note that this version is experimental, music is unpausable and wont be played until initial hitting of **space** key. 
+To run the wav file input version (MacOs only), run "cube.space (wav version)" located in the folder "WAV Reading Version". This application file can be ran in any directory that has wave files, and it will recognize/visualize them in sort order. Note that this version is experimental, music is unpausable and wont be played until initial hitting of **space** key. 
 
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Tunnel_Scale.png "Tunnel Scale")
 
