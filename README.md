@@ -9,8 +9,11 @@ Download project .zip to run on macOS, Windows (untested) or Linux (untested).
 For quick-launch/viewing, run "cube.space (demo version)". 
 
 -Mac: cube.space (demo version).app
+<br />
 -Windows: cube.space(demo version).exe
+<br />
 -Linux: cube.space(demo version).x86
+<br />
 
 The "demo version" contains a pre-selected list of songs, and the "mic version" uses built-in microphone input to create visualizations.
 
