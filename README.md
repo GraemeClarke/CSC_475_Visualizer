@@ -17,20 +17,6 @@ For quick-launch/viewing, run "cube.space (demo version)".
 
 To run the built-in microphone, input-based version (MacOS only) run "cube.space(mic version).app"
 
-=======
-Download project .zip to run on MacOS, Windows (untested) or Linux (untested).
-
-For quick-launch/viewing, run "cube.space (demo version)". 
-
-   **Mac:** cube.space (demo version).app
-<br />
-   **Windows:** cube.space(demo version).exe or cube.space(demo version) [64].
-<br />
-   **Linux:** cube.space(demo version).x86
-<br />
-
-To run the built-in microphone, input-based version (MacOS only) run "cube.space(mic version).app"
-
 To run the wav file input version (MacOs only), run "cube.space (wav version)" located in the folder "WAV Reading Version". This application file can be ran in any directory that has wave files, and it will recognize/visualize them in sort order. Note that this version is experimental, music is unpausable and wont be played until initial hitting of **space** key. 
 
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Tunnel_Scale.png "Tunnel Scale")
