@@ -1,5 +1,5 @@
 # cube.space
-An audio visualizer project intially designed for CSC 475 - Musicial Information Retrieval Techniques no longer in development. <br />
+An audio visualizer project intially designed for "CSC 475 - Musicial Information Retrieval Techniques", no longer in development. <br />
 
 ![alt text](https://github.com/GraemeClarke/CSC_475_Visualizer/blob/master/sample_images/Sphere_Cubes.png "Sphere Cubes")
 
